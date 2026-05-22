@@ -25,28 +25,26 @@ RegisterNumber: 212225040173
 */
 import numpy as np
 import matplotlib.pyplot as plt
-X=np.array(eval(input()))
-Y=np.array(eval(input()))
-X_mean=np.mean(X)
-Y_mean=np.mean(Y)
-num=0
-denom=0
-for i in range(len(X)):
-    num+=(X[i]-X_mean)*(Y[i]-Y_mean)
-    denom+=(X[i]-X_mean)**2
-m=num/denom
-b=Y_mean-(m*X_mean)
-print(m,b)
-Y_predicted = m*X+b
-print(Y_predicted)
-plt.scatter(X,Y)
-plt.plot(X,Y_predicted,color="red")
+x = np.array([1, 2, 3, 4, 5])     
+y = np.array([2, 4, 5, 4, 5])     
+n = len(x)
+m = (n * np.sum(x * y) - np.sum(x) * np.sum(y)) / (n * np.sum(x ** 2) - (np.sum(x)) ** 2)
+c = (np.sum(y) - m * np.sum(x)) / n
+print(f"Slope (m): {m}")
+print(f"Intercept (c): {c}")
+y_pred = m * x + c
+plt.scatter(x, y, color='blue', label='Actual data')
+plt.plot(x, y_pred, color='red', label='Fitted line')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Univariate Linear Regression using Least Squares')
+plt.legend()
 plt.show()
 ```
 
 ## Output:
 ![best fit line](sam.png)
-<img width="727" height="620" alt="image" src="https://github.com/user-attachments/assets/feddc2ec-3772-4c32-83fe-c3c85c46c89d" />
+<img width="732" height="638" alt="image" src="https://github.com/user-attachments/assets/0677b6d6-fef7-419e-b6d5-9dae720dcd81" />
 
 
 ## Result:
